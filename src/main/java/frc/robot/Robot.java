@@ -6,8 +6,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Intake;
+import frc.robot.commands.DriveManual;
 import frc.robot.commands.ElevatorManual;
 import frc.robot.commands.IntakeManual;
 
@@ -24,6 +26,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    CommandScheduler.getInstance().setDefaultCommand(Drivetrain.getInstance(), new DriveManual());
     Intake.getInstance().setDefaultCommand(new IntakeManual());
     Elevator.getInstance().setDefaultCommand(new ElevatorManual());
   }

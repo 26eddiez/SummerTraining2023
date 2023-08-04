@@ -12,6 +12,7 @@ public class Drivetrain extends SubsystemBase {
     private HSTalon leftMaster, rightMaster;
     private HSTalon leftFollower, rightFollower;
 
+
     private Drivetrain() {
         rightMaster = new HSTalon(RobotMap.Drivetrain.RIGHT_MASTER_ID);
         leftMaster = new HSTalon(RobotMap.Drivetrain.LEFT_MASTER_ID);
