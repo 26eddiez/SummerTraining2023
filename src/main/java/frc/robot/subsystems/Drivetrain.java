@@ -1,7 +1,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import harkerrobolib.wrappers.HSTalon;
@@ -10,14 +12,14 @@ public class Drivetrain extends SubsystemBase {
     private static Drivetrain instance;
 
     private HSTalon leftMaster, rightMaster;
-    private HSTalon leftFollower, rightFollower;
+    private VictorSPX leftFollower, rightFollower;
 
 
     private Drivetrain() {
         rightMaster = new HSTalon(RobotMap.Drivetrain.RIGHT_MASTER_ID);
         leftMaster = new HSTalon(RobotMap.Drivetrain.LEFT_MASTER_ID);
-        rightFollower = new HSTalon(RobotMap.Drivetrain.RIGHT_FOLLOWER_ID);
-        leftFollower = new HSTalon(RobotMap.Drivetrain.LEFT_FOLLOWER_ID);
+        rightFollower = new VictorSPX(RobotMap.Drivetrain.RIGHT_FOLLOWER_ID);
+        leftFollower = new VictorSPX(RobotMap.Drivetrain.LEFT_FOLLOWER_ID);
 
         rightMaster.setInverted(RobotMap.Drivetrain.RIGHT_MASTER_INVERT);
         leftMaster.setInverted(RobotMap.Drivetrain.LEFT_MASTER_INVERT);

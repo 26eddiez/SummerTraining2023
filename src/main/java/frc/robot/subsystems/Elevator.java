@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import harkerrobolib.wrappers.HSTalon;
@@ -12,12 +13,12 @@ import harkerrobolib.wrappers.HSTalon;
 public class Elevator extends SubsystemBase {
     private static Elevator instance;
 
-    private HSTalon elevatorMaster, Follower1;
-    private VictorSPX Follower2, Follower3;
+    private HSTalon elevatorMaster;
+    private VictorSPX Follower1, Follower2, Follower3;
 
     private Elevator() {
         elevatorMaster = new HSTalon(RobotMap.Elevator.MASTER_MOTOR_ID);
-        Follower1= new HSTalon(RobotMap.Elevator.FOLLOWER1_MOTOR_ID);
+        Follower1= new VictorSPX(RobotMap.Elevator.FOLLOWER1_MOTOR_ID);
         Follower2 = new VictorSPX(RobotMap.Elevator.FOLLOWER2_MOTOR_ID);
         Follower3 = new VictorSPX(RobotMap.Elevator.FOLLOWER3_MOTOR_ID);
         
